@@ -285,7 +285,7 @@ module.provider('Restangular', function() {
               });
 
               deferred.promise.push = function (newItem) {
-                this.then(function (items) {
+                return this.then(function (items) {
                   processedData.push(newItem);
                 });
               };
