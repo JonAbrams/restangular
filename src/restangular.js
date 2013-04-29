@@ -283,6 +283,12 @@ module.provider('Restangular', function() {
               }, function error(response) {
                   deferred.reject(response);
               });
+
+              deferred.promise.push = function (newItem) {
+                this.then(function (items) {
+                  processedData.push(newItem);
+                });
+              };
               
               return deferred.promise;
           }
